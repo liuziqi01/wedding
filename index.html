@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">	
+	<style>
+		table, th, td {
+			border-collapse: collapse;
+			padding: 10px;
+			text-align: center;
+			font-size: 14px;
+			
+		}
+		h1 {
+			color:  #66c2ff;
+			font-weight: bold;
+			font-family: 'Sofia', recursive;
+			font-size: 45px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		th  {
+			font-size: 25px;
+			color:  #66c2ff;
+			font-weight: bold;
+			font-family: 'Sofia', recursive;
+		}
+		.search {
+			margin-bottom: 10px;
+			color:  #66c2ff;
+			font-weight: bold;
+			font-family: 'Sofia';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.search button {
+			background-color: #66c2ff;
+			font-family: 'Sofia';
+			border: thin;
+			border-radius: 10px;
+			margin : 5px;
+		}
+
+		#reset-btn {
+			display: none;
+		}
+		
+		.search input[type="text"] {
+			border:1px solid #66c2ff;
+			margin: 5px;
+			border-radius: 10px;
+		}
+		.tables table {
+			margin-bottom: 20px;
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 10px;
+			width: 20%;
+		}
+		tr {
+			font-family: 'Sofia' , sans-serif;
+			font-size: 12px;
+		}
+		.tables{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		@media (max-width: 800px) {
+			.tables table {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		body {
+			/* background-image: url('https://img.freepik.com/free-vector/soft-purple-green-floral-background-with-watercolor_65186-2756.jpg'); */
+			background-color:#fcfbe1 ;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+	</style>
+	<title>Find Your Seat</title>
+</head>
+<body>
+
+	<h1>Find Your Seat</h1>
+	<div class="search">
+		<label for="search-input" >Search by Guest Name:  </label>
+		<input type="text" id="search-input" name="search-input">
+		<button id="search-btn">Search</button>
+		<button id="reset-btn">Reset</button>
+	</div>
+	<div class="tables" id = "tables"> </div>
+
+	<script>
+		// Load the data from the JSON file
+
+		const table1 = ["Xueli Xie","Chen Wang","Yuanying Tian","Xiaobo Liu","Liwen Wang","Liping Wang","Yishan Liu"];
+		const table2 = ["2", "2b"];
+		const table3 = ["3", "3b"];
+		const table4 = ["4", "3b"];
+		const table5 = ["5", "3b"];
+		const table6 = ["6", "3b"];
+
+		var tableNumber = 1;
+		const alltable = [table1, table2, table3, table4, table5, table6];
+				// Create a table for each table in the data
+		alltable.forEach(tableData => {
+			var table = document.createElement('table');
+			table.id = "table" + tableNumber;
+			table.innerHTML = `
+			<thead>
+			<tr>
+			<th colspan="3">Table ${tableNumber}</th>
+			</tr>
+			</thead>
+			<tbody>
+			${tableData.map(name => `<tr><td>${name}</td></tr>`).join('')}
+			</tbody>
+			`;
+			document.querySelector('.tables').appendChild(table);
+			tableNumber++;
+		});
+	</script>
+
+	<script>
+		const searchBtn = document.getElementById("search-btn");
+		const resetBtn = document.getElementById("reset-btn");
+		const searchInput = document.getElementById("search-input");
+		const tables = document.getElementById("tables").getElementsByTagName("table");
+
+		searchBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				const rows = tables[i].getElementsByTagName("td");
+				tables[i].style.display = 'none';
+				for (let j = 0; j < rows.length; j++) {
+					console.log(rows[j].textContent);
+					if (rows[j].textContent.toLowerCase().includes(searchTerm)) {
+						tables[i].style.display = "";
+						break;
+					}
+				}
+			}
+			resetBtn.style.display = 'inline-block';
+		});
+
+		resetBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				tables[i].style.display="";
+			}
+			resetBtn.style.display="none";
+		});
+	</script>
+</body>
+</html>
