@@ -63,13 +63,13 @@
 			width: 20%;
 		}
 		tr {
-			font-family: 'Sofia' , sans-serif;
+			font-family:Comic Sans MS, Comic Sans, cursive;
 			font-size: 12px;
 		}
 		.tables{
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: top;
 			flex-wrap: wrap;
 		}
 		@media (max-width: 800px) {
@@ -101,15 +101,25 @@
 	<script>
 		// Load the data from the JSON file
 
-		const table1 = ["Xueli Xie","Chen Wang","Yuanying Tian","Xiaobo Liu","Liwen Wang","Liping Wang","Yishan Liu"];
-		const table2 = ["2", "2b"];
-		const table3 = ["3", "3b"];
-		const table4 = ["4", "3b"];
-		const table5 = ["5", "3b"];
-		const table6 = ["6", "3b"];
+		const table1 = ["Liwen Wang", "Liping Wang", "Mei Liu","Yishan Liu","Bing Liu", "Xueli Xie", "Chen Wang", "Yuanying Tian", "Xiaobo Liu"];
+		const table2 = ["Abby Huang", "Carina Cai", "Dixin Yan", "Wencong Zhang", "Shengshun Zhou", "Amber Zhang", "Yimeng Huang"];
+		const table3 = ["Yuyang Nie", "Baijie Li", "Shi Yin", "Honglei", "Yifang", "Ni Zhuang", "Chen Zhong"];
+			const table4 = ["Wenbo Zhang", "Wenbo Family", "Wenbo Family", "Xuan Li", "Xuan Family", "Xuan Family", "Sylvia Wang","Bai Xiao", "Alex Zhou", "Winny Duan"];
+		const table5 = ["Mingmei Yang", "Bingbing Zhuang", "Siyang Li", "Yanning Liu", "Harry Zeng", "Yifei He", "Tian Guo", "Yiding Lyu", "Xing Chen"];
+				const table6 = ["Siqi Chen", "Yuang Yao", "Wenchang Zhou", "Junfei Huang", "Tony Huang", "Sophia Sun", "Rachel Peng", "Zt Yang", "Jimmy Zhuang", "Alan Long"];
+
+		
+		const table7 = ["Xiao Wu", "Vincent Zhao", "Aohui Lin", "Tianqi Li", "Bingyue Wang", "Lichao Yin", "Chen Chen", "Yuanming Tang; Diwei Juang", "Fei Wang"];
+		const table8 = ["Jie Huang", "Boya Yan", "Luting Chen", "Alex Hsu", "Nancy Li", "Wilson Lau", "Stella Zhang", "Will Feng", "Ying Wang", "Tianyu Liang"];
+		const table9 = ["Shiyu Wang", "Vesper", "Yicheng Fang", "Shiyao Qu", "Jingjing Rong", "Xidian Sun", "ChenChi ", "Katelyn", "Andy Zhou","Xi Xi"];
+		const table10 = ["Adrianne Martinson", "Justin Martinson", "Faye Fang", "Yang Xu", "Lin Gao", "Yin Yin", "Elaine Xie", "John Fan", "Cindy"];
+		const table11 = ["Yuchen Li", "Ruomiao Guo", "Yanjun Zhu", "Yuqi Lin", "Weirong Huang", "Yuan Ding", "Yuanyuan Ni", "Shijie Xue", "Fanchen Kong", "Teng Pan"];
+		const table12 = ["De Liao", "Yingzi Zhang", "Song Xie", "Yushuang", "Jun Yan", "Wensheng Mao", "Zhe Xiong", "Francis Mao", "Xiang Xiao", "Wei wen"];
+		const table13 = ["Chen Ma", "Chengzhu Zhang", "Yifei Zhou", "Daisy Zhang", "Zheng Li", "Xu Zeng"];
+			const table14 = ["Annika Zhang， Cao Liu", "Feizhou Peng", "Xinyi Li ", "Shirong Liang", "Yuzhuo Li"];
 
 		var tableNumber = 1;
-		const alltable = [table1, table2, table3, table4, table5, table6];
+		const alltable = [table1, table2, table3, table4, table5, table6, table7, table8,table9,table10,table11, table12, table13, table14];
 				// Create a table for each table in the data
 		alltable.forEach(tableData => {
 			var table = document.createElement('table');
@@ -156,6 +166,7 @@
 			for (let i = 0; i < tables.length; i++) {
 				tables[i].style.display="";
 			}
+			searchInput.value="";
 			resetBtn.style.display="none";
 		});
 	</script>
