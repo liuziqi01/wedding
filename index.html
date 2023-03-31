@@ -9,9 +9,18 @@
 			padding: 10px;
 			text-align: center;
 			font-size: 14px;
-			
+			align: center-top;
+			border: 0px;
+			width: 100%;
+		}
+		tbody, thead {
+			display: table;
+			overflow-x: auto;
+			overflow-y:auto;
+			width: 100%;
 		}
 		h1 {
+			margin-top: 180px;
 			color:  #66c2ff;
 			font-weight: bold;
 			font-family: 'Sofia', recursive;
@@ -56,7 +65,7 @@
 			border-radius: 10px;
 		}
 		.tables table {
-			margin-bottom: 20px;
+			margin-bottom: 120px;
 			display: inline-block;
 			vertical-align: top;
 			margin-right: 10px;
@@ -71,6 +80,7 @@
 			justify-content: center;
 			align-items: top;
 			flex-wrap: wrap;
+			margin-bottom: 150px;
 		}
 		@media (max-width: 800px) {
 			.tables table {
@@ -79,10 +89,14 @@
 			}
 		}
 		body {
-			/* background-image: url('https://img.freepik.com/free-vector/soft-purple-green-floral-background-with-watercolor_65186-2756.jpg'); */
+			background-image: url('https://img.freepik.com/free-vector/invitation-card-with-light-blue-theme_53876-43997.jpg?w=740&t=st=1680254224~exp=1680254824~hmac=db83c2aa85503a579deb7836c1844510d244e2ea7e059e5c0d1d018359bd0ba3');  
+			/*https://img.freepik.com/free-vector/glitter-pink-leafy-frame_53876-116089.jpg?w=740&t=st=1680253649~exp=1680254249~hmac=27a65d9f93ee20c0d0098bdcceef999b4cc75591be226ce3fd8d33310db753f7*/
 			background-color:#fcfbe1 ;
-			background-size: cover;
+			background-size: contain;
 			background-repeat: no-repeat;
+			background-origin: bottom;
+			 width: 100%;
+  height: 100%;
 		}
 	</style>
 	<title>Find Your Seat</title>
@@ -109,14 +123,14 @@
 				const table6 = ["Siqi Chen", "Yuang Yao", "Wenchang Zhou", "Junfei Huang", "Tony Huang", "Sophia Sun", "Rachel Peng", "Zt Yang", "Jimmy Zhuang", "Alan Long"];
 
 		
-		const table7 = ["Xiao Wu", "Vincent Zhao", "Aohui Lin", "Tianqi Li", "Bingyue Wang", "Lichao Yin", "Chen Chen", "Yuanming Tang; Diwei Juang", "Fei Wang"];
+		const table7 = ["Xiao Wu", "Vincent Zhao", "Aohui Lin", "Tianqi Li", "Bingyue Wang", "Lichao Yin", "Chen Chen", "Yuanming Tang","Diwei Juang", "Fei Wang"];
 		const table8 = ["Jie Huang", "Boya Yan", "Luting Chen", "Alex Hsu", "Nancy Li", "Wilson Lau", "Stella Zhang", "Will Feng", "Ying Wang", "Tianyu Liang"];
 		const table9 = ["Shiyu Wang", "Vesper", "Yicheng Fang", "Shiyao Qu", "Jingjing Rong", "Xidian Sun", "ChenChi ", "Katelyn", "Andy Zhou","Xi Xi"];
 		const table10 = ["Adrianne Martinson", "Justin Martinson", "Faye Fang", "Yang Xu", "Lin Gao", "Yin Yin", "Elaine Xie", "John Fan", "Cindy"];
 		const table11 = ["Yuchen Li", "Ruomiao Guo", "Yanjun Zhu", "Yuqi Lin", "Weirong Huang", "Yuan Ding", "Yuanyuan Ni", "Shijie Xue", "Fanchen Kong", "Teng Pan"];
 		const table12 = ["De Liao", "Yingzi Zhang", "Song Xie", "Yushuang", "Jun Yan", "Wensheng Mao", "Zhe Xiong", "Francis Mao", "Xiang Xiao", "Wei wen"];
 		const table13 = ["Chen Ma", "Chengzhu Zhang", "Yifei Zhou", "Daisy Zhang", "Zheng Li", "Xu Zeng"];
-			const table14 = ["Annika Zhang， Cao Liu", "Feizhou Peng", "Xinyi Li ", "Shirong Liang", "Yuzhuo Li"];
+			const table14 = ["Annika Zhang" "Cao Liu", "Feizhou Peng", "Xinyi Li ", "Shirong Liang", "Yuzhuo Li"];
 
 		var tableNumber = 1;
 		const alltable = [table1, table2, table3, table4, table5, table6, table7, table8,table9,table10,table11, table12, table13, table14];
