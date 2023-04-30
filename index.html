@@ -133,28 +133,29 @@
 	<script>
 		// Load the data from the JSON file
 
-		const table1 = ["Liwen Wang", "Liping Wang", "Mei Liu","Yishan Liu","Bing Liu", "Xueli Xie", "Chen Wang", "Yuanying Tian", "Xiaobo Liu"];
-		const table2 = ["Abby Huang", "Carina Cai", "Dixin Yan", "Wencong Zhang", "Shengshun Zhou", "Amber Zhang", "Yimeng Huang"];
-		const table3 = ["Yuyang Nie", "Baijie Li", "Shi Yin", "Honglei", "Yifang", "Ni Zhuang", "Chen Zhong"];
-			const table4 = ["Wenbo Zhang", "Wenbo Family", "Wenbo Family", "Xuan Li", "Xuan Family", "Xuan Family", "Sylvia Wang","Bai Xiao", "Alex Zhou", "Winny Duan"];
-		const table5 = ["Mingmei Yang", "Bingbing Zhuang", "Siyang Li", "Yanning Liu", "Harry Zeng", "Yifei He", "Tian Guo", "Yiding Lyu", "Xing Chen"];
-				const table6 = ["Siqi Chen", "Yuang Yao", "Wenchang Zhou", "Junfei Huang", "Tony Huang", "Sophia Sun", "Rachel Peng", "Zt Yang", "Jimmy Zhuang", "Alan Long"];
+		const table1 = ["Liping Wang","Liwen Wang","Bing Liu","Yishan Liu","Mei Liu","Xueli Xie","Chen Wang","Yuanying Tian","Xiaobo Liu"];
+		const table2 = ["Adrianne Martinson","Justin Martinson","Yang Xu","Faye Fang","Yanjun Zhu","Yuqi Lin","Elaine Xie","John Fan","Cindy","Zheng Li"];
+		const table3 = ["Ruomiao Guo","Yuchen Li","Yin Yin","Lin Gao","Weirong Huang","Yuan Ding","Shijie Xue","Yuanyuan Ni","Fanchen Kong","Teng Pan"];
+			const table4 = ["Yuang Yao","Siqi Chen","Wenchang Zhou","Junfei ","Rachel Peng","Zt Yang","Alan Long"];
+		const table5 = ["De Liao","Yingzi Zhang","Yus","Jun Yan","Wensheng Mao","Zhe Xiong","Francis Mao","Xiang Xiao","Wei wen","Song Xie"];
+				const table6 = ["Abby Huang ","Carina Cai","Dixin Yan","Wencong Zhang","Amber Zhang","Shengshun Zhou","Yimeng "];
 
 		
-		const table7 = ["Xiao Wu", "Vincent Zhao", "Aohui Lin", "Tianqi Li", "Bingyue Wang", "Lichao Yin", "Chen Chen", "Yuanming Tang","Diwei Juang", "Fei Wang"];
-		const table8 = ["Jie Huang", "Boya Yan", "Luting Chen", "Alex Hsu", "Nancy Li", "Wilson Lau", "Stella Zhang", "Will Feng", "Ying Wang", "Tianyu Liang"];
-		const table9 = ["Shiyu Wang", "Vesper", "Yicheng Fang", "Shiyao Qu", "Jingjing Rong", "Xidian Sun", "ChenChi ", "Katelyn", "Andy Zhou","Xi Xi"];
-		const table10 = ["Adrianne Martinson", "Justin Martinson", "Faye Fang", "Yang Xu", "Lin Gao", "Yin Yin", "Elaine Xie", "John Fan", "Cindy"];
-		const table11 = ["Yuchen Li", "Ruomiao Guo", "Yanjun Zhu", "Yuqi Lin", "Weirong Huang", "Yuan Ding", "Yuanyuan Ni", "Shijie Xue", "Fanchen Kong", "Teng Pan"];
-		const table12 = ["De Liao", "Yingzi Zhang", "Song Xie", "Yushuang", "Jun Yan", "Wensheng Mao", "Zhe Xiong", "Francis Mao", "Xiang Xiao", "Wei wen"];
-		const table13 = ["Chen Ma", "Chengzhu Zhang", "Yifei Zhou", "Daisy Zhang", "Zheng Li", "Xu Zeng"];
-			const table14 = ["Annika Zhang", "Cao Liu", "Feizhou Peng", "Xinyi Li ", "Shirong Liang", "Yuzhuo Li"];
+		const table7 = ["Wenbo Zhang","Wenbo Family","Wenbo Family","Xuan Family","Xuan Family","Xuan Li","Sylvia Wang","Bai Xiao","Alex Zhou","Winny Duan"];
+		const table8 = ["Yuyang Nie","Baijie Li","Shi Yin","Honglei","Yifang","Chen Zhong","Ni Z"];
+		const table9 = ["Diwei Juang","Yuanming Tang","Raphael Shi","Vesper","Yicheng Fang","Shiyao Qu","Katelyn","ChenChi","Xi Xi","Andy Zhou"];
+		const table10 = ["Jie Huang","Boya Yan","Luting Chen","Alex Hsu","Nancy Li","Wilson Lau","Stella Zhang","Will Feng","Ying Wang","Tianyu Liang"];
+		const table11 = ["Harry Zeng","Yifei He","Xing Chen","Xu Zeng","Tian Guo","Yiding Lyu","Shiyu Wang"];
+		const table12 = ["Annika Zhang","Cao Liu","Xinyi Li","Feizhou Peng","Yuzhuo Li","Shirong Liang","Chen Ma"];
+		const table13 = ["Jingjing Rong","Xidian Sun","Vincent Zhao","Xiao Wu","Aohui Lin","Tianqi Li","Fei Wang","Chen Chen","Lichao Yin","Bingyue Wang"];
+			const table14 = ["Mingmei Yang","Bingbing Z","Yanning Liu","Siyang Li","Chengzhu Zhang","Yifei Zhou","Daisy Zhang"];
 
 		var tableNumber = 1;
 		const alltable = [table1, table2, table3, table4, table5, table6, table7, table8,table9,table10,table11, table12, table13, table14];
 				// Create a table for each table in the data
 		alltable.forEach(tableData => {
 			var table = document.createElement('table');
+			tableData.sort();
 			table.id = "table" + tableNumber;
 			table.innerHTML = `
 			<thead>
@@ -183,7 +184,6 @@
 				const rows = tables[i].getElementsByTagName("td");
 				tables[i].style.display = 'none';
 				for (let j = 0; j < rows.length; j++) {
-					console.log(rows[j].textContent);
 					if (rows[j].textContent.toLowerCase().includes(searchTerm)) {
 						tables[i].style.display = "";
 						break;
