@@ -27,7 +27,7 @@ app.get('/seat/golden', function(req, res) {
 
 
 // Start the server
-const port = 3000;
+const port =  process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Server is running at http://localhost:' + port);
 });
