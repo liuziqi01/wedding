@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">	
+	<style>
+		table, th, td {
+			border-collapse: collapse;
+			padding: 10px;
+			text-align: center;
+			font-size: 14px;
+			align: center-top;
+			border: 0px;
+			width: 100%;
+		}
+		
+		tbody, thead {
+			display: table;
+			overflow-x: auto;
+			overflow-y:auto;
+			width: 100%;
+		}
+		h1 {
+			margin-top:130px;
+			color:  #bcd1d6;
+			font-weight: bold;
+			font-family: 'Sofia', recursive;
+			font-size: 45px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		th  {
+			font-size: 25px;
+			color:  #bcd1d6;
+			font-weight: bold;
+			font-family: 'Sofia', recursive;
+		}
+		.search {
+			margin-bottom: 10px;
+			color:  #bcd1d6;
+			font-weight: bold;
+			font-family: 'Sofia';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.search button {
+			background-color: #bcd1d6;
+			font-family: 'Sofia';
+			border: thin;
+			border-radius: 10px;
+			margin : 5px;
+			color: darkgreen;
+		}
+
+		#reset-btn {
+			display: none;
+		}
+		
+		.search input[type="text"] {
+			border:1px solid #bcd1d6;
+			margin: 5px;
+			border-radius: 10px;
+		}
+		.tables table {
+			margin-bottom: 20px;
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 10px;
+			width: 20%;
+		}
+		tr {
+			font-family:Bradley Hand, cursive;
+			font-size: 12px;
+		}
+		.tables{
+			display: flex;
+			justify-content: center;
+			align-items: top;
+			flex-wrap: wrap;
+			margin-bottom: 250px;
+		}
+		@media (max-width: 800px) {
+			.tables table {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		
+		body {
+			background-image: url("wedding-background-1.png");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-origin: bottom;
+			width: 100%;
+		}
+		
+		/*
+
+			.background-image {
+				display: flex;
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://img.freepik.com/free-vector/invitation-card-with-light-blue-theme_53876-43997.jpg?w=740&t=st=1680254224~exp=1680254824~hmac=db83c2aa85503a579deb7836c1844510d244e2ea7e059e5c0d1d018359bd0ba3');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: -1;
+}
+*/
+	</style>
+	<title>Find Your Seat</title>
+</head>
+<body>
+	<div class="background-image"></div>
+
+	<h1>Find Your Seat</h1>
+	<div class="search">
+		<label for="search-input" >Search by Guest Name :  </label>
+		<input type="text" id="search-input" name="search-input">
+		<button id="search-btn">Search</button>
+		<button id="reset-btn">Reset</button>
+	</div>
+	<div class="tables" id = "tables"> </div>
+
+	<script>
+		// Load the data from the JSON file
+
+		const table1 = ["Liping Wang","Liwen Wang","Bing Liu","Yishan Liu","Mei Liu","Xueli Xie","Chen Wang","Yuanying Tian","Xiaobo Liu"];
+		const table2 = ["Adrianne Martinson","Justin Martinson","Yang Xu","Faye Fang","Yanjun Zhu","Yuqi Lin","Elaine Xie","John Fan","Cindy","Zheng Li"];
+		const table3 = ["Ruomiao Guo","Yuchen Li","Yin Yin","Lin Gao","Weirong Huang","Yuan Ding","Shijie Xue","Yuanyuan Ni","Fanchen Kong","Teng Pan"];
+			const table4 = ["Yuang Yao","Siqi Chen","Wenchang Zhou","Junfei ","Rachel Peng","Zt Yang","Alan Long"];
+		const table5 = ["De Liao","Yingzi Zhang","Yus","Jun Yan","Wensheng Mao","Zhe Xiong","Francis Mao","Xiang Xiao","Wei wen","Song Xie"];
+				const table6 = ["Abby Huang ","Carina Cai","Dixin Yan","Wencong Zhang","Amber Zhang","Shengshun Zhou","Yimeng "];
+
+		
+		const table7 = ["Wenbo Zhang","Wenbo Family","Wenbo Family","Xuan Family","Xuan Family","Xuan Li","Sylvia Wang","Bai Xiao","Alex Zhou","Winny Duan"];
+		const table8 = ["Yuyang Nie","Baijie Li","Shi Yin","Honglei","Yifang","Chen Zhong","Ni Z"];
+		const table9 = ["Diwei Juang","Yuanming Tang","Raphael Shi","Vesper","Yicheng Fang","Shiyao Qu","Katelyn","ChenChi","Xi Xi","Andy Zhou"];
+		const table10 = ["Jie Huang","Boya Yan","Luting Chen","Alex Hsu","Nancy Li","Wilson Lau","Stella Zhang","Will Feng","Ying Wang","Tianyu Liang"];
+		const table11 = ["Harry Zeng","Yifei He","Xing Chen","Xu Zeng","Tian Guo","Yiding Lyu","Shiyu Wang"];
+		const table12 = ["Annika Zhang","Cao Liu","Xinyi Li","Feizhou Peng","Yuzhuo Li","Shirong Liang","Chen Ma"];
+		const table13 = ["Jingjing Rong","Xidian Sun","Vincent Zhao","Xiao Wu","Aohui Lin","Tianqi Li","Fei Wang","Chen Chen","Lichao Yin","Bingyue Wang"];
+			const table14 = ["Mingmei Yang","Bingbing Z","Yanning Liu","Siyang Li","Chengzhu Zhang","Yifei Zhou","Daisy Zhang"];
+
+		var tableNumber = 1;
+		const alltable = [table1, table2, table3, table4, table5, table6, table7, table8,table9,table10,table11, table12, table13, table14];
+				// Create a table for each table in the data
+		alltable.forEach(tableData => {
+			var table = document.createElement('table');
+			tableData.sort();
+			table.id = "table" + tableNumber;
+			table.innerHTML = `
+			<thead>
+			<tr>
+			<th colspan="3">Table ${tableNumber}</th>
+			</tr>
+			</thead>
+			<tbody>
+			${tableData.map(name => `<tr><td>${name}</td></tr>`).join('')}
+			</tbody>
+			`;
+			document.querySelector('.tables').appendChild(table);
+			tableNumber++;
+		});
+	</script>
+
+	<script>
+		const searchBtn = document.getElementById("search-btn");
+		const resetBtn = document.getElementById("reset-btn");
+		const searchInput = document.getElementById("search-input");
+		const tables = document.getElementById("tables").getElementsByTagName("table");
+
+		searchBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				const rows = tables[i].getElementsByTagName("td");
+				tables[i].style.display = 'none';
+				for (let j = 0; j < rows.length; j++) {
+					if (rows[j].textContent.toLowerCase().includes(searchTerm)) {
+						tables[i].style.display = "";
+						break;
+					}
+				}
+			}
+			resetBtn.style.display = 'inline-block';
+		});
+
+		resetBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				tables[i].style.display="";
+			}
+			searchInput.value="";
+			resetBtn.style.display="none";
+		});
+	</script>
+</body>
+</html>

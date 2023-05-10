@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">	
+		<link rel="stylesheet" type="text/css" href="/css/<%= cssFile %>">
+
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/<%= cssFile %>">
+	<title>Find Your Seat</title>
+</head>
+<body>
+	<div class="background-image"></div>
+
+	<h1>Find Your Seat</h1>
+	<div class="search">
+		<label for="search-input" >Search by Guest Name :  </label>
+		<input type="text" id="search-input" name="search-input">
+		<button id="search-btn">Search</button>
+		<button id="reset-btn">Reset</button>
+	</div>
+	<div class="tables" id = "tables"> </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script src = "/js/generate_table_content.js" />
+
+	<script>
+		const searchBtn = document.getElementById("search-btn");
+		const resetBtn = document.getElementById("reset-btn");
+		const searchInput = document.getElementById("search-input");
+		const tables = document.getElementById("tables").getElementsByTagName("table");
+
+		searchBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				const rows = tables[i].getElementsByTagName("td");
+				tables[i].style.display = 'none';
+				for (let j = 0; j < rows.length; j++) {
+					if (rows[j].textContent.toLowerCase().includes(searchTerm)) {
+						tables[i].style.display = "";
+						break;
+					}
+				}
+			}
+			resetBtn.style.display = 'inline-block';
+		});
+
+		resetBtn.addEventListener("click", function() {
+			const searchTerm = searchInput.value.toLowerCase();
+			for (let i = 0; i < tables.length; i++) {
+				tables[i].style.display="";
+			}
+			searchInput.value="";
+			resetBtn.style.display="none";
+		});
+	</script>
+</body>
+</html>
