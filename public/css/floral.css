@@ -1,8 +1,19 @@
-
-		body {
+ body {
 			background-image: url("../resources/flower_background.png");
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-origin: bottom;
 			width: 100%;
 		}
+
+		.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("your-image-url.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}

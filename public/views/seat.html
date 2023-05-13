@@ -3,16 +3,16 @@
 <head>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">	
-		<link rel="stylesheet" type="text/css" href="/css/<%= cssFile %>">
+		<link rel="stylesheet" type="text/css" href="/css/<%= theme %>.css">
 
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/css/<%= cssFile %>">
+	<link rel="stylesheet" type="text/css" href="/css/<%= theme %>.css">
 	<title>Find Your Seat</title>
 </head>
 <body>
-	<div class="background-image"></div>
-
+<img src ="../resources/<%= theme %>.jpg" class = "background-image" />
 	<h1>Find Your Seat</h1>
+
 	<div class="search">
 		<label for="search-input" >Search by Guest Name :  </label>
 		<input type="text" id="search-input" name="search-input">
@@ -21,7 +21,6 @@
 	</div>
 	<div class="tables" id = "tables"> </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 	<script src = "/js/generate_table_content.js" />
 
 	<script>

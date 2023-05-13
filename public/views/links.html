@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Designs</title>
+</head>
+<body>
+  <h1>List of Links</h1>
+  <ul>
+    <% pages.forEach(page => { %>
+      <li><a href="<%= page.url %>"><%= page.name %></a></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
