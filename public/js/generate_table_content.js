@@ -1,7 +1,5 @@
 // Load the data from the JSON file
-
 var alltable=[];
-
 const xhr = window.XMLHttpRequest ? new XMLHttpRequest(): new ActiveXObject("Microsoft.XMLHTTP"); 
 xhr.open('GET', '../resources/names.txt', false);
 xhr.onreadystatechange = function () {
@@ -12,7 +10,6 @@ xhr.onreadystatechange = function () {
       // Process each line here
       const names = line.split(',');
       alltable.push(names);
-      console.log(names);
   });
 	}
 };
@@ -39,3 +36,4 @@ alltable.forEach(tableData => {
 });
 
 
+console.log("ZL finished")

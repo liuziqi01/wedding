@@ -3,14 +3,14 @@
 <head>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">	
-		<link rel="stylesheet" type="text/css" href="/css/<%= theme %>.css">
-
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kalam">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">	
 	<link rel="stylesheet" type="text/css" href="/css/common.css">
 	<link rel="stylesheet" type="text/css" href="/css/<%= theme %>.css">
 	<title>Find Your Seat</title>
 </head>
 <body>
-<img src ="../resources/<%= theme %>.jpg" class = "background-image" />
 	<h1>Find Your Seat</h1>
 
 	<div class="search">
@@ -21,15 +21,17 @@
 	</div>
 	<div class="tables" id = "tables"> </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src = "/js/generate_table_content.js" />
+	<script src = "/js/generate_table_content.js" > </script>
 
 	<script>
 		const searchBtn = document.getElementById("search-btn");
 		const resetBtn = document.getElementById("reset-btn");
 		const searchInput = document.getElementById("search-input");
 		const tables = document.getElementById("tables").getElementsByTagName("table");
+			console.log("ZL adding");
 
 		searchBtn.addEventListener("click", function() {
+			console.log("ZL click");
 			const searchTerm = searchInput.value.toLowerCase();
 			for (let i = 0; i < tables.length; i++) {
 				const rows = tables[i].getElementsByTagName("td");
